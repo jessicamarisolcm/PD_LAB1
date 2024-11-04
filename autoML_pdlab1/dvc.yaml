@@ -1,0 +1,17 @@
+stages:
+  preprocessing:
+    cmd: python src/data_preprocessing.py
+    deps:
+      - data/dataset.csv
+      - src/data_preprocessing.py
+    outs:
+      - data/preprocessed_data.csv
+
+  train:
+    cmd: python src/model_training.py
+    deps:
+      - data/preprocessed_data.csv
+      - src/model_training.py
+    outs:
+      - models/
+
